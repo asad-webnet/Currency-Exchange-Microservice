@@ -26,7 +26,9 @@ public class CurrencyExchangeController {
         String port = env.getProperty("local.server.port");
         Optional<CurrencyExchange> ce = currencyExchangeRepository.findByFromAndTo(from,to);
 
+
         if(ce.isPresent()) {
+            ce.get().setEnvironment(port);
             return ce.get();
         } else {
             throw new RuntimeException("Unable to find data for " + from + " to " + to);
