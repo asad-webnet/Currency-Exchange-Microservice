@@ -7,8 +7,6 @@ import java.util.Optional;
 
 @Repository
 public interface CurrencyExchangeRepository extends JpaRepository<CurrencyExchange,Long> {
-
     Optional<CurrencyExchange> findByFromAndTo(String from, String to);
-
 
 }
